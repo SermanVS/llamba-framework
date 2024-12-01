@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry]
-name = "llamba-framework"
+name = "llamba_framework"
 version = "0.1.11"
 description = "A framework to merge BioAge models with LLMs!"
 readme = "README.md"
