@@ -20,7 +20,7 @@ repository = "https://github.com/mike-live/llamba-framework"
 
 [tool.poetry.dependencies]
 python = "3.11.*"
-requests = "2.31.0"
+requests = "^2.31.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "8.3.3"
+pytest = "^8.3.3"
