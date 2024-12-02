@@ -4,9 +4,9 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry]
-name = "llamba_framework"
+name = "llamba_library"
 version = "0.1.11"
-description = "A framework to merge BioAge models with LLMs!"
+description = "A library to merge BioAge models with LLMs!"
 readme = "README.md"
 authors = [
   "Sergei Tikhomirov <sergey.zr.co.uk@gmail.com>", 
@@ -16,11 +16,29 @@ maintainers = [
     "Sergei Tikhomirov <sergey.zr.co.uk@gmail.com>", 
     "Mike Krivonosov <krivonosov@itmm.unn.ru>"
 ]
-repository = "https://github.com/mike-live/llamba-framework"
+repository = "https://github.com/mike-live/llamba_library"
 
 [tool.poetry.dependencies]
 python = "3.11.*"
-requests = "^2.31.0"
+torch = {version = "2.3.1+cpu", source = "torch"}
+torchvision = {version = "0.18.1+cpu", source = "torch"}
+torchaudio = {version = "2.3.1+cpu", source = "torch"}
+pytorch_lightning = "2.1.4"
+numpy = "^1"
+shap = "0.46.0"
+pandas = "2.2.3"
+torchmetrics = "1.2.1"
+seaborn = "*"
+matplotlib = "3.9.3"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
