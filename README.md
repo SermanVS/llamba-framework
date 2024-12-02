@@ -29,7 +29,7 @@ The diagram above explains the expected workflow of llamba:
 5. Explainer returns the explanation with some information about the most important features.
 6. User receives an explanation with some graphs which demonstrate how his result compares with other peoples'.
 
-This is the framework part of llamba that is responsible for communication with an LLM.
+This is the library part of llamba that is responsible for communication with an LLM.
 
 ## Table of contents
 
@@ -55,30 +55,12 @@ You can download the sources and install them via Poetry by running the followin
 
 ### Test
 
-To test that the library works, you can run the following [notebook sample](./samples/framework-in-use.ipynb):
-
-```python
-# Choosing an LLM
-from llamba_framework.chatmodels.chatbase import ChatbaseModel # Another option -- `OllamaModel` -- is located in ollama.py
-import config
-
-chat_model = ChatbaseModel(url=config.URL_CB, api_key=config.API_KEY_CB, chatbot_id=config.ID_CB)
-
-# LLM prompt creation
-feat = 'C-reactive protein' # obtained from library
-level = 'increased'# obtained from library
-
-prompt = f'What is {feat}? What does {level} level of {feat} mean?'
-
-# API request sending
-chat_model.query(prompt=prompt, timeout=60)[1]
-```
+To test that the library works, you can run the following [notebook sample](./samples/library-in-use.ipynb):
 
 ## TODO
 
-1. Add a wrapper for a locally stored model (huggingface integration).
-2. Add a wrapper for ChatGPT.
-3. Provide more configurability for all the wrappers.
+1. Add more models to the [models](https://github.com/SermanVS/txai_omics_3) library.
+2. Cover code with more tests.
 
 ## License
 

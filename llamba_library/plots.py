@@ -1,6 +1,7 @@
 import seaborn as sn
 import matplotlib.pyplot as plt
 import numpy as np
+import shap
 
 def kde_plot(my_acceleration, bg_data):
     res = sn.kdeplot(data=bg_data, label="Distribution")
@@ -32,3 +33,18 @@ def feat_plot(feature, age, **kwargs):
         plt.legend()
     elif no_legend is None:
         plt.legend()
+
+def shap_plot(explainer, feats, target, data):
+    shap_values_trgt = explainer.shap_values(data.loc[target, feats].values)
+    base_value = explainer.expected_value[0]
+
+    shap.plots.waterfall(
+        shap.Explanation(
+            values=shap_values_trgt,
+            base_values=base_value,
+            data=data.loc[target, feats].values,
+            feature_names=feats
+        ),
+        max_display=len(feats),
+        show=True,
+    )
