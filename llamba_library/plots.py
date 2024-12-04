@@ -34,7 +34,8 @@ def feat_plot(feature, age, **kwargs):
     elif no_legend is None:
         plt.legend()
 
-def shap_plot(explainer, feats, target, data):
+def shap_plot(shap_dict, feats, target, data):
+    explainer = shap_dict['explainer']
     shap_values_trgt = explainer.shap_values(data.loc[target, feats].values)
     base_value = explainer.expected_value[0]
 
