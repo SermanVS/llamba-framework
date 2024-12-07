@@ -3,33 +3,12 @@ from tqdm import tqdm
 import pandas as pd
 from scipy.special import expit
 import pickle 
-import shap
 
 def get_shap_dict(fn_shap):
     # SHAP
     with open(fn_shap, 'rb') as handle:
         shap_dict = pickle.load(handle)
     return shap_dict
-
-def get_top_shap(n, data, feats, shap_dict):
-    explainer = shap_dict['explainer']
-    shap_values_trgt = explainer.shap_values(data.loc[0, feats].values)
-    base_value = explainer.expected_value[0]
-
-    explanation = shap.Explanation(
-        values=shap_values_trgt,
-        base_values=base_value,
-        data=data.loc[0, feats].values,
-        feature_names=feats)
-
-    permutation = np.array(explanation.values).argsort()
-    
-    # Top-n values
-    values = np.array(explanation.values)[permutation][-n:]
-    data = np.array(explanation.data)[permutation][-n:]
-    feats = np.array(feats)[permutation][-n:]
-    return values, data, feats
-
 
 def weighted_percentile(data, weights, perc):
     ix = np.argsort(data)

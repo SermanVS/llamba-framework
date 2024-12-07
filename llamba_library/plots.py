@@ -34,18 +34,10 @@ def feat_plot(feature, age, **kwargs):
     elif no_legend is None:
         plt.legend()
 
-def shap_plot(shap_dict, feats, target, data):
-    explainer = shap_dict['explainer']
-    shap_values_trgt = explainer.shap_values(data.loc[target, feats].values)
-    base_value = explainer.expected_value[0]
-
+def shap_plot(shap_dict):
+    feats = shap_dict['feats']
     shap.plots.waterfall(
-        shap.Explanation(
-            values=shap_values_trgt,
-            base_values=base_value,
-            data=data.loc[target, feats].values,
-            feature_names=feats
-        ),
-        max_display=len(feats),
+        shap_dict['explanation'],
+        max_display=len(feats) + 1,
         show=True,
     )
