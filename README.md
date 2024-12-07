@@ -24,12 +24,12 @@ The diagram above explains the expected workflow of llamba:
 
 1. User creates a request providing his sample data, a model to use, and a dataset on which the model was trained.
 2. llamba runs a BioAge estimation model inference.
-3. llamba receives BioAge along with SHAP values which are filtered to just 5 most influential features.
+3. llamba receives BioAge along with SHAP values which are filtered to a chosen number of the most influential features.
 4. llamba designs a special prompt that asks Explainer (a specially-trained LLM model) to describe the results. A prompt may look like so: `What is X? What does an increased level of X mean?`, where X is a feature.
 5. Explainer returns the explanation with some information about the most important features.
-6. User receives an explanation with some graphs which demonstrate how his result compares with other peoples'.
+6. User receives an explanation with graphs of individual impact of each feature on their BioAge.
 
-This is the library part of llamba that is responsible for communication with an LLM.
+This is the library part of llamba that is responsible for BioAge estimation model.
 
 ## Table of contents
 
@@ -42,7 +42,6 @@ This is the library part of llamba that is responsible for communication with an
 ## Main features
 
 - Supports various BioAge estimation models due to a special wrapper class that requires the model to implement necessary methods.
-- Supports various chatbot explainers.
 - Has an ability to show graphs where users can see their results compared to other participants.
 
 ## Installation
