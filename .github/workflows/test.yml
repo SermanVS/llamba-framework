@@ -44,8 +44,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-          run: poetry install --no-interaction --no-root
+          poetry install --no-interaction --no-root
           pip install pytest
           pip install sh
 
@@ -94,8 +93,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-          run: poetry install --no-interaction --no-root
+          poetry install --no-interaction --no-root
           pip install pytest
           pip install sh
 
@@ -144,8 +142,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-          run: poetry install --no-interaction --no-root
+          poetry install --no-interaction --no-root
           pip install pytest
           pip install sh
 
@@ -187,8 +184,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-          run: poetry install --no-interaction --no-root
+          poetry install --no-interaction --no-root
           pip install pytest
           pip install sh
 
