@@ -44,7 +44,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-root
+          poetry install --no-interaction
           pip install pytest
           pip install sh
 
@@ -93,7 +93,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-root
+          poetry install --no-interaction
           pip install pytest
           pip install sh
 
@@ -142,7 +142,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-root
+          poetry install --no-interaction
           pip install pytest
           pip install sh
 
@@ -184,7 +184,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-root
+          poetry install --no-interaction
           pip install pytest
           pip install sh
 
