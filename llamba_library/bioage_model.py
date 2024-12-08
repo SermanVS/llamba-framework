@@ -4,9 +4,11 @@ from torch import nn
 import shap
 import numpy as np
 
-class BioAgeModel:
+class BioAgeModel():
     def __init__(self, model: nn.Module):
         self.model = model
+        self.model.eval()
+        self.model.freeze()
 
     def inference(self, data: pd.DataFrame, device: torch.device):
         self.model.to(device)
@@ -19,6 +21,8 @@ class BioAgeModel:
 
     def get_top_shap(self, n, data, feats, shap_dict):
         top_shap = {}
+        np.random.seed(0)
+        torch.manual_seed(0)
         explainer = shap_dict['explainer']
         shap_values_trgt = explainer.shap_values(data.loc[0, feats].values)
         base_value = explainer.expected_value[0]
