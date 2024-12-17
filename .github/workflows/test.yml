@@ -45,6 +45,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install --no-interaction
+          source /home/runner/work/llamba_library/llamba_library/.venv/activate
           pip install pytest
           pip install sh
 
