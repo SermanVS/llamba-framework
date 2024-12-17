@@ -25,6 +25,8 @@ class TestAnalyzeFunction(unittest.TestCase):
                 x = self.linear(x)
                 return abs(x)
             
+            def freeze(self): pass
+            
         model = DummyBioAgeModel()
         bioage_model = BioAgeModel(model)
         res = bioage_model.inference(data, torch.device('cpu'))
