@@ -51,10 +51,12 @@ jobs:
 
       - name: List dependencies
         run: |
+          source /home/runner/work/llamba_library/llamba_library/.venv/bin/activate
           python -m pip list
 
       - name: Run pytest
         run: |
+          source /home/runner/work/llamba_library/llamba_library/.venv/bin/activate
           pytest -v
 
   run_tests_macos:
