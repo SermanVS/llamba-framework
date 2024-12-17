@@ -97,18 +97,18 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install --no-interaction
-          source /home/runner/work/llamba_library/llamba_library/.venv/bin/activate
+          source /Users/runner/work/llamba_library/llamba_library/.venv/bin/activate
           pip install pytest
           pip install sh
 
       - name: List dependencies
         run: |
-          source /home/runner/work/llamba_library/llamba_library/.venv/bin/activate
+          source /Users/runner/work/llamba_library/llamba_library/.venv/bin/activate
           python -m pip list
 
       - name: Run pytest
         run: |
-          source /home/runner/work/llamba_library/llamba_library/.venv/bin/activate
+          source /Users/runner/work/llamba_library/llamba_library/.venv/bin/activate
           pytest -v
 
   run_tests_windows:
@@ -148,7 +148,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction
+          C:\Users\runneradmin\.local\bin\poetry install --no-interaction
           cd /home/runner/work/llamba_library/llamba_library/.venv/Scripts
           activate
           pip install pytest
